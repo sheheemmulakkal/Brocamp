@@ -1,0 +1,43 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "Binary search using recursion\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "function binarySearch(value,array,left,right){\r\n    if(left>right){\r\n        return 'error';\r\n    }\r\n    let middleIndex = Math.floor((left + right)/2)\r\n\r\n    if(array[middleIndex] === value){\r\n        return middleIndex;\r\n    } else {\r\n        if(value < array[middleIndex]){\r\n \r\n            return binarySearch(value,array,left,middleIndex-1)\r\n        } else {\r\n\r\n            \r\n            return binarySearch(value,array,middleIndex+1,right)\r\n        }\r\n    }\r\n}\r\n\r\n\r\nlet arra = [1,2,3,4,5,6,7,8]\r\nlet bresut = binarySearch(6,arr,0,arr.length)\r\nconsole.log(bresut);\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "5",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stderr",
+                            "value": [
+                                "Debugger ending on ws://127.0.0.1:55231/3f7d659f-db25-4b07-81f6-57e1d9d3989f\r",
+                                "For help, see: https://nodejs.org/en/docs/inspector\r",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

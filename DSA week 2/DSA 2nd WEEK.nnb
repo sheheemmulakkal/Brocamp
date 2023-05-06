@@ -1,0 +1,264 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "TASK :\r\n======\r\n\r\n\r\n* Learn about Bubble Sort, Insertion Sort, Selection Sort, Quick sort and Merge sort. Complete at least three sample workouts in each of them.\r\n* Learn the concept of Stack and Queue. Complete at least three sample workouts in each of them & do at least 3      problems from any competitive coding websites (Hacker Rank, Code Chef, Leet code, Algo Expert, etc.)\r\n    - PUSH, POP and Display elements in Stack \r\n    - Enqueue, Dequeue and Display elements in Queue\r\n* Learn the concepts of Hash Table. Complete at least 3 sample workouts.\r\n* Learn about the Applications of all structures you covered this week\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Topics : \r\n========\r\n\r\n* Sorting :\r\n\r\n    - Bubble sort\r\n    - Insertion sort\r\n    - Selection sort\r\n    - Quick sort\r\n    - Merge sort\r\n\r\n* Stack \r\n    - Push\r\n    - Pop \r\n    - Display elemnts in stack\r\n\r\n* Queue\r\n    - Enqueue\r\n    - Dequeue\r\n    - Display elemnts in queue\r\n\r\n* Hash table\r\n\r\n\r\n\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "SORITNG\r\n========"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "BUBBLE SORT\r\n-----------\r\n\r\nBubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.\r\n\r\nThis sort is works with a nested loop, outer loop iterates till second last element in array. +\r\n\r\nAt first Inner loop starts with zero and ends with second last, while iterates it swap the greater value to the last[ compares (arr[j] > arr[j+1] )], now the largest value is at the end of the array.\r\n\r\nIn next iteration of i (means when i = 1), j loop will end with previous element iterated before. Now the second largest is there\r\n we can give the loop conditions like this :\r\n    i => arr.length - 1\r\n    j => arr.length - i - i (Because in every iteration we have to end in previous element iterated before)\r\n    \r\nThen it repeats "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "\r\n\r\nfunction bubbleSort(arr){\r\n    for(let i = 0; i < arr.length - 1; i++){\r\n        for(let j = 0; j < arr.length - i - 1; j++){\r\n            if(arr[j]>arr[j+1]){\r\n                let temp = arr[j];\r\n                arr[j] = arr[j+1];\r\n                arr[j+1] = temp;\r\n            } \r\n        }\r\n    }\r\n    return arr\r\n}\r\nlet arr = [2,4,5,2,6,2,4,8,5,4,6]\r\nconsole.log(bubbleSort(arr));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "  2, 2, 2, 4, 4,",
+                                "  4, 5, 5, 6, 6,",
+                                "  8",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Time Complexity: O(N2)\r\nAuxiliary Space: O(1)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Recursive Bubble sort\r\n----------------------\r\n\r\n(source : geekforgeeks)\r\n\r\nThe idea is to place the largest element in its position and keep doing the same for every other element.\r\n\r\nAlgorithm:\r\n\r\n* Start with an array of unsorted numbers\r\n\r\n* Define a function called “bubbleSort” that takes in the array and the length of the array as parameters\r\n\r\n* In the function, create a variable called “sorted” that is set to true\r\n\r\n* Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1\r\n\r\n* Within the for loop, compare the current element with the next element in the array\r\n\r\n* If the current element is greater than the next element, swap their positions and set “sorted” to false\r\n\r\n* After the for loop, check if “sorted” is false\r\n\r\n* If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters\r\n\r\n* If “sorted” is true, the array is now sorted and the function will return the sorted array\r\n\r\n* Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let arr = [2,4,5,2,6,2,4,8,5,4,6];\r\n\r\nfunction recbubble ( a, n){\r\n\r\n    let sorted = true\r\n    for(i=0; i<n-1; i++){\r\n        if(a[i]>a[i+1]){\r\n            let temp = a[i];\r\n            a[i] = a[i+1] ;\r\n            a[i+1] = temp\r\n            sorted = false;\r\n        }\r\n    }\r\n\r\n    if(sorted === false){\r\n        return recbubble(arr,n);\r\n    } else {\r\n        return arr\r\n    }\r\n}\r\n\r\nconsole.log(recbubble(arr,arr.length));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "  2, 2, 2, 4, 4,",
+                                "  4, 5, 5, 6, 6,",
+                                "  8",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n\r\n\r\nMy words :\r\n\r\n    first we sets the sorted as true. With the for loop we checks the for loop is sorted. If the loop is sorted the variable 'sorted' remains as true, else the loop will iterates and bring the largest element to the last. if any value is swapped the variable sorted becomes false.\r\n\r\n    if variable is false the function calls again, and repeats the same (sorted bocomes true , if swapped it becomes false)\r\n\r\n    if the loop is sorted any time, it will not enter to the if condition inside for loop, so the variable will stand as true(in every function call sorted becomes true).\r\n\r\n    if variable is sorted it will returns the array.\r\n\r\n\r\nTime Complexity : O (N^2 )\r\n\r\nAuxiliary space : O(1)\r\n\r\n\r\nWhere is the Bubble sort algorithm used?\r\n---------------------------------------\r\nDue to its simplicity, bubble sort is often used to introduce the concept of a sorting algorithm. \r\nIn computer graphics, it is popular for its capability to detect a tiny error (like a swap of just two elements) in almost-sorted arrays and fix it with just linear \r\ncomplexity (2n). \r\n\r\nExample: \r\nIt is used in a polygon filling algorithm, where bounding lines are sorted by their x coordinate at a specific scan line (a line parallel to the x-axis), and with incrementing y their order changes (two elements are swapped) only at intersections of two lines (Source: Wikipedia)\r\n\r\nAdvantages:\r\n---------\r\n - Bubble sort is easy to understand and implement.\r\n - It does not require any additional memory space.\r\n - It’s adaptability to different types of data.\r\n - It is a stable sorting algorithm, meaning that elements with the same key value maintain their relative order in the sorted output.\r\n\r\nDisadvantages:\r\n-----------\r\n - Bubble sort has a time complexity of O(n^2) which makes it very slow for large data sets.\r\n - It is not efficient for large data sets, because it requires multiple passes through the data.\r\n - Bubble sort is a comparison-based sorting algorithm, which means that it requires a comparison operator to determine the relative  order of elements in the input data set. While this is not necessarily a disadvantage, it can limit the efficiency of the algorithm in certain cases.\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "SELECTION SORT\r\n---------------"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "source: geegforgeeks\r\n\r\nSelection sort is a simple and efficient sorting algorithm that works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and moving it to the sorted portion of the list. The algorithm repeatedly selects the smallest (or largest) element from the unsorted portion of the list and swaps it with the first element of the unsorted portion. This process is repeated for the remaining unsorted portion of the list until the entire list is sorted. One variation of selection sort is called “Bidirectional selection sort” which goes through the list of elements by alternating between the smallest and largest element, this way the algorithm can be faster in some cases."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Here's an explanation of how the code works:\r\nsource(chatgpt)\r\n\r\n1 - We define a function called selectionSort that takes an array arr as its parameter.\r\n\r\n2 - We initialize a variable n to the length of arr.\r\n\r\n3 - We use a for loop to iterate through the array, from the first element to the second-to-last element (n - 1).\r\n\r\n4 - For each element arr[i], we assume that it is the minimum value and store its index in minIndex.\r\n\r\n5 - We then use another for loop to search for the smallest value in the rest of the array (arr[i+1] to arr[arr.length-1]).\r\n\r\n6 - If we find a value that is smaller than arr[minIndex], we update minIndex to the index of the smaller value.\r\n\r\n7 - After we have searched through the rest of the array, we check if minIndex is still equal to i. If it's not, that means we found a smaller value in the rest of the array, so we swap arr[i] with arr[minIndex].\r\n\r\n8 - We repeat steps 4-7 for each element of the array.\r\n\r\n9 - Finally, we return the sorted array."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let arr = [5,5,4,2,8,1,6,4,2,85,14,5,9]\r\n\r\nfunction selectionSort(arr){\r\n    for(let i=0; i < arr.length - 1; i++){\r\n        let minIndex = i;  //--------------------------------> Sets i to minIndex (which means arr[i] as smallest)\r\n        for(let j=i+1; j < arr.length; j++){   //-------------------------> iterates left values.\r\n            if(arr[j] < arr[minIndex]){  // -----> whenever values comes lest than arr[minIndex]\r\n                minIndex = j  //---------------> minIndex will be that number\r\n            }\r\n        }\r\n        \r\n        if(i !== minIndex){   //--------> if i changed. means if there is less vaulue than i \r\n            [arr[i],arr[minIndex]] = [arr[minIndex],arr[i]]  //--------> it will swap\r\n        }\r\n    }\r\n\r\n    return arr\r\n}\r\n\r\nconsole.log(selectionSort(arr));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "   1, 2, 2, 4, 4,  5,",
+                                "   5, 5, 6, 8, 9, 14,",
+                                "  85",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Complexity Analysis of Selection Sort:\r\n------------------------------------\r\nTime Complexity: The time complexity of Selection Sort is O(N2) as there are two nested loops:\r\n\r\nOne loop to select an element of Array one by one = O(N)\r\nAnother loop to compare that element with every other Array element = O(N)\r\nTherefore overall complexity = O(N) * O(N) = O(N*N) = O(N2)\r\n\r\nAuxiliary Space: O(1) as the only extra memory used is for temporary variables while swapping two values in Array. The selection sort never makes more than O(N) swaps and can be useful when the memory write is a costly operation. "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "================================================================================================"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "INSERTION SORT\r\n---------------\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "got the concept correctly from udemy\r\nBro code youtube video also helpful\r\n\r\nsource : chat gpt\r\n\r\nThis implementation defines a function called insertionSort that takes an array arr as input and returns the sorted array. Here's a step-by-step breakdown of how the function works:\r\n\r\n- const n = arr.length;: This line initializes the variable n with the length of the input array arr.\r\n\r\n- for (let i = 1; i < n; i++) {: This line starts a for loop that iterates through the array arr starting from the second element (index 1) and continuing until the end of the array.\r\n\r\n- const key = arr[i];: This line initializes the variable key with the value of the current element being compared, which is the ith element of the array arr.\r\n\r\n- let j = i - 1;: This line initializes the variable j with the position of the previous element being compared, which is the i-1th element of the array arr.\r\n\r\n- while (j >= 0 && key < arr[j]) {: This line starts a while loop that continues as long as j is greater than or equal to 0 and key is less than the jth element of the array arr.\r\n\r\n- arr[j+1] = arr[j];: This line shifts the jth element of the array arr to the right by one position, effectively making room for the key element to be inserted into its correct position.\r\n\r\n- j--;: This line decrements the value of j to continue comparing the key element with the previous elements of the array arr.\r\n\r\n- arr[j+1] = key;: This line inserts the key element into its correct position in the sorted sub-array.\r\n\r\n- return arr;: This line returns the sorted array arr after all the iterations are completed.\r\n\r\nOverall, this implementation of insertion sort works by iteratively comparing the current element with the previous ones and inserting it into its correct position in the sorted sub-array. This process is repeated for all elements of the input array, resulting in a sorted array at the end."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction insertionSort(arr){\r\n    const n = arr.length\r\n    for(let i=1; i<n; i++){\r\n        const key = arr[i];\r\n        let j = i-1;\r\n        while(j>=0 && key < arr[j]){\r\n            arr[j+1] = arr[j]\r\n            j--;\r\n        }\r\n        arr[j+1] = key\r\n    }\r\n\r\n    console.log(arr);\r\n}\r\n\r\ninsertionSort(arr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "   2, 2, 4, 4,  5,",
+                                "   5, 6, 6, 8, 14,",
+                                "  21",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "MERGE SORT\r\n=========="
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "source :\r\n-------\r\n - bro code youtube\r\n - udemy\r\n - code evolution "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction mergeSort(arr){\r\n    if(arr.length < 2){\r\n        return arr;\r\n    }\r\n\r\n    const mid = Math.floor(arr.length/2);\r\n    const leftArr = arr.slice(0,mid);\r\n    const rightArr = arr.slice(mid);\r\n    return merge(mergeSort(leftArr), mergeSort(rightArr))\r\n}\r\n\r\nfunction merge(leftArr , rightArr){\r\n    sortedArr = []\r\n    while(leftArr.length && rightArr.length){\r\n       if(leftArr[0] < rightArr[0]){\r\n        sortedArr.push(leftArr.shift())\r\n       } else {\r\n        sortedArr.push(rightArr.shift())\r\n       }\r\n    }\r\n\r\n    return [ ...sortedArr, ...leftArr, ...rightArr]\r\n}\r\n\r\nlet result = mergeSort(arr)\r\nconsole.log(result);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "QUICK SORT\r\n=========="
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction quickSort(arr){\r\n    if(arr.length < 2){\r\n        return arr\r\n    }\r\n\r\n    let pivot = arr[arr.length-1]\r\n    let left = [];\r\n    let right = [];\r\n    for(i=0; i<arr.length-1; i++){\r\n        if(arr[i] < pivot){\r\n            left.push(arr[i])\r\n        } else {\r\n            right.push(arr[i])\r\n        }\r\n    }\r\n    return [...quickSort(left), pivot, ...quickSort(right)]\r\n}\r\n\r\nlet result = quickSort(arr)\r\nconsole.log(result);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "   2, 2, 4, 4,  5,",
+                                "   5, 6, 6, 8, 14,",
+                                "  21",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Additional :\r\n============\r\n\r\nAuxiliary Space: The extra space that is taken by an algorithm temporarily to finish its work. \r\n\r\nSpace Complexity: Space complexity is the total space taken by the algorithm with respect to the input size plus the auxiliary space that the algorithm uses.\r\n\r\nWhat is a stable sorting algorithm? \r\n----------------------------------\r\nA sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input data set\r\n\r\nfor more abuot stable and unstable refer geekforgeeks(link given below):\r\nhttps://www.geeksforgeeks.org/stable-and-unstable-sorting-algorithms/"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}
