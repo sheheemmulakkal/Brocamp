@@ -211,7 +211,7 @@
         {
             "language": "javascript",
             "source": [
-                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction mergeSort(arr){\r\n    if(arr.length < 2){\r\n        return arr;\r\n    }\r\n\r\n    const mid = Math.floor(arr.length/2);\r\n    const leftArr = arr.slice(0,mid);\r\n    const rightArr = arr.slice(mid);\r\n    return merge(mergeSort(leftArr), mergeSort(rightArr))\r\n}\r\n\r\nfunction merge(leftArr , rightArr){\r\n    sortedArr = []\r\n    while(leftArr.length && rightArr.length){\r\n       if(leftArr[0] < rightArr[0]){\r\n        sortedArr.push(leftArr.shift())\r\n       } else {\r\n        sortedArr.push(rightArr.shift())\r\n       }\r\n    }\r\n\r\n    return [ ...sortedArr, ...leftArr, ...rightArr]\r\n}\r\n\r\nlet result = mergeSort(arr)\r\nconsole.log(result);"
+                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction mergeSort(arr){\r\n    if(arr.length < 2){\r\n        return arr;\r\n    }\r\n\r\n    const mid = Math.floor(arr.length/2);\r\n    const leftArr = arr.slice(0,mid);\r\n    const rightArr = arr.slice(mid);\r\n    return merge(mergeSort(leftArr), mergeSort(rightArr))\r\n}\r\n\r\n\r\nfunction merge(leftArr , rightArr){\r\n    sortedArr = []\r\n    while(leftArr.length && rightArr.length){\r\n       if(leftArr[0] < rightArr[0]){\r\n        sortedArr.push(leftArr.shift())\r\n       } else {\r\n        sortedArr.push(rightArr.shift())\r\n       }\r\n    }\r\n\r\n    return [ ...sortedArr, ...leftArr, ...rightArr]\r\n}\r\n\r\nlet result = mergeSort(arr)\r\nconsole.log(result);"
             ],
             "outputs": []
         },
@@ -225,7 +225,7 @@
         {
             "language": "javascript",
             "source": [
-                "let arr = [2,4,5,21,6,2,14,8,5,4,6];\r\n\r\n\r\nfunction quickSort(arr){\r\n    if(arr.length < 2){\r\n        return arr\r\n    }\r\n\r\n    let pivot = arr[arr.length-1]\r\n    let left = [];\r\n    let right = [];\r\n    for(i=0; i<arr.length-1; i++){\r\n        if(arr[i] < pivot){\r\n            left.push(arr[i])\r\n        } else {\r\n            right.push(arr[i])\r\n        }\r\n    }\r\n    return [...quickSort(left), pivot, ...quickSort(right)]\r\n}\r\n\r\nlet result = quickSort(arr)\r\nconsole.log(result);"
+                "let arr = [4,3,5,1,3];\r\n\r\n\r\nfunction quickSort(arr){\r\n    if(arr.length < 2){\r\n        return arr\r\n    }\r\n\r\n    let pivot = arr[arr.length-1]\r\n    let left = [];\r\n    let right = [];\r\n    for(i=0; i<arr.length-1; i++){\r\n        if(arr[i] < pivot){\r\n            left.push(arr[i])\r\n        } else {\r\n            right.push(arr[i])\r\n        }\r\n    }\r\n    return [...quickSort(left), pivot, ...quickSort(right)]\r\n}\r\n\r\nlet result = quickSort(arr)\r\nconsole.log(result);"
             ],
             "outputs": [
                 {
@@ -233,11 +233,7 @@
                         {
                             "mime": "application/vnd.code.notebook.stdout",
                             "value": [
-                                "[",
-                                "   2, 2, 4, 4,  5,",
-                                "   5, 6, 6, 8, 14,",
-                                "  21",
-                                "]",
+                                "[ 1, 3, 3, 4, 5 ]",
                                 "",
                                 ""
                             ]

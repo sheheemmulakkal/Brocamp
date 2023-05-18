@@ -1,0 +1,46 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "TASKS\r\n=====\r\n- Learn the concepts of Tree. Complete at least three sample workouts.\r\n- Learn the concepts of Binary Search Tree. Complete at least three sample workouts. \r\n    + Example:\r\n        * Create a Binary Search Tree with insertion, contains, delete, three traversals ( postorder, preorder, in order).\r\n        * Find the closest value to a given number in a Tree.\r\n        * Validate whether a given tree is BST or not.\r\n- Learn the concepts of Heap. Complete at least three sample workouts. \r\n    + Example:\r\n        * Create a min heap & max heap with build, insert, remove.\r\n* Learn the concept of Heap sort. Complete at least three sample workouts\r\n* Learn the concepts of Trie. Complete at least 3 sample workouts. \r\n* Learn the concepts of Graph. Complete at least three sample workouts.\r\n* Learn the concepts of Graph traversals (BFS, DFS).\r\n* Do at least 3 problems each for every structure from any competitive coding websites \r\n* Learn about the applications of all structures you covered this week\r\n\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "TOPICS\r\n======\r\n\r\n- Tree\r\n- Binary search tree\r\n    * Insertion \r\n    * contains \r\n    * Delete\r\n    * Three Traversals\r\n        + Post order\r\n        + Pre order\r\n        + In order\r\n    * Closest value to a given number in a Tree.\r\n    * Given tree is BST or not.\r\n- Heap (https://onestepcode.com/heap-implementation-javascript/)\r\n    * min heap & max heap with build, insert, remove\r\n- Heap sort\r\n- Trie\r\n- Graph\r\n- Graph traversals (BFS, DFS).\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "CONTENTS\r\n========\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Source: Geek for geeks\r\n\r\n\r\nwhat is heap : A Heap is a special Tree-based data structure in which the tree is a complete binary tree.\r\n\r\nThere are two types of heaps \r\nmin heap and max heap\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}
